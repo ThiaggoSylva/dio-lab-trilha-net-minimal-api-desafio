@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dio-lab-trilha-net-minimal-api-desafio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8393d1753627a61db48a5cce9d892dda27516ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36f2415a09250574645af2d6d8d20cb2c9f1f122")]
 [assembly: System.Reflection.AssemblyProductAttribute("dio-lab-trilha-net-minimal-api-desafio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dio-lab-trilha-net-minimal-api-desafio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
