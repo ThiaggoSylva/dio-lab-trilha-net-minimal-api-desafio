@@ -37,9 +37,10 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Dominio.Servicos
             return veiculo;
         }
 
-        public List<Veiculo> Todos(int pagina = 1, string? nome = null, string? marca = null)
+        public List<Veiculo> Todos(int? pagina = 1, string? nome = null, string? marca = null)
         {
             int resultadosPorPagina = 10;
+            int pag = pagina is null? 1 : (int)pagina;
 
             IQueryable<Veiculo> query = _contexto.Veiculos.AsQueryable();
             if(nome is not null)
@@ -47,7 +48,7 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Dominio.Servicos
             if(marca is not null)
                 query = query.Where(v => v.Marca.Contains(marca, StringComparison.OrdinalIgnoreCase));
             
-            return [.. _contexto.Veiculos.Skip((pagina - 1)*resultadosPorPagina)
+            return [.. _contexto.Veiculos.Skip((pag - 1)*resultadosPorPagina)
                                          .Take(resultadosPorPagina)];
         }
     }
