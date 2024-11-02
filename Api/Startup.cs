@@ -88,6 +88,14 @@ namespace dio_lab_trilha_net_minimal_api_desafio
                     ServerVersion.AutoDetect(Configuration.GetConnectionString("mysql"))
                 );
             });
+
+            services.AddCors(options => {
+                options.AddDefaultPolicy(builder => {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -97,7 +105,7 @@ namespace dio_lab_trilha_net_minimal_api_desafio
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseCors();
             app.UseEndpoints(endpoints =>{
                 #region Home
                 endpoints.MapGet("/", () => Results.Json(new Home())).AllowAnonymous().WithTags("Home");
