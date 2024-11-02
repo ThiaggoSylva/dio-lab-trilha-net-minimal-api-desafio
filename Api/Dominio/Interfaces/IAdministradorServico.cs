@@ -13,5 +13,6 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Dominio.Interfaces
         Administrador? BuscarPorId(int id);
         Administrador Incluir(Administrador administrador);
         Administrador? Login(LoginDTO loginDTO);
+        int ContarTotal();
     }
 }

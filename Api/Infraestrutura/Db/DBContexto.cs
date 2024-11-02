@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dio_lab_trilha_net_minimal_api_desafio.Infraestrutura.Db
 {
-    public class DBContexto(IConfiguration configuracaoAppSettings) : DbContext
+    public class DBContexto(DbContextOptions<DBContexto> options, IConfiguration? configuracaoAppSettings = null) : DbContext(options)
     {
-        private readonly IConfiguration _configuracaoAppSettings = configuracaoAppSettings;
+        private readonly IConfiguration? _configuracaoAppSettings = configuracaoAppSettings;
 
         public DbSet<Administrador> Administradores {get; set;} = default!;
         public DbSet<Veiculo> Veiculos {get; set;} = default!;
@@ -21,7 +21,7 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Infraestrutura.Db
                     Id = 1,
                     Email = "administrador@teste.com",
                     Senha = "123456",
-                    Perfil = "Admn"
+                    Perfil = "Adm"
                 }
             );
         }
@@ -30,7 +30,7 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Infraestrutura.Db
         {
             if(!optionsBuilder.IsConfigured)
             {
-                var stringConexao = _configuracaoAppSettings.GetConnectionString("mysql")?.ToString();
+                var stringConexao = _configuracaoAppSettings?.GetConnectionString("mysql")?.ToString();
                 if(!string.IsNullOrEmpty(stringConexao))
                 optionsBuilder.UseMySql(
                     stringConexao,

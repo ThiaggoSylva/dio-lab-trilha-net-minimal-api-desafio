@@ -38,5 +38,10 @@ namespace dio_lab_trilha_net_minimal_api_desafio.Dominio.Servicos
         {
             return _contexto.Administradores.Find(id);
         }
+
+        public int ContarTotal()
+        {
+            return _contexto.Administradores.Count();
+        }
     }
 }
