@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dio_lab_trilha_net_minimal_api_desafio.Infraestrutura.Db;
 
@@ -10,9 +11,11 @@ using dio_lab_trilha_net_minimal_api_desafio.Infraestrutura.Db;
 namespace dio_lab_trilha_net_minimal_api_desafio.Migrations
 {
     [DbContext(typeof(DBContexto))]
-    partial class DBContextoModelSnapshot : ModelSnapshot
+    [Migration("20241102202545_FixingSeed")]
+    partial class FixingSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
